@@ -1,9 +1,9 @@
 <script>
-	import Minesweeper from '$lib/Minesweeper.svelte';
+	import App from '$lib/App.svelte';
 </script>
 
 <svelte:head>
 	<title>Minesweeper</title>
 </svelte:head>
 
-<Minesweeper />
+<App />

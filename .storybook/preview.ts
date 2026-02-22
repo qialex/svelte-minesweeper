@@ -5,7 +5,7 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Game', ['Minesweeper', 'Board', ['Cell'], 'StatusBar', ['FaceButton', 'Timer', 'MineCounter']], 'UI', ['Footer', 'Tooltip']],
+        order: ['App', 'Game', ['Minesweeper', 'Board', ['Cell'], 'StatusBar', ['FaceButton', 'Timer', 'MineCounter']], 'UI', ['Footer', 'Tooltip']],
       },
     },
     controls: {

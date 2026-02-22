@@ -1,7 +1,6 @@
 <script lang="ts">
 	import StatusBar from './StatusBar.svelte';
 	import Board from './Board.svelte';
-	import Footer from './Footer.svelte';
 
 	const ROWS = 8;
 	const COLS = 8;
@@ -169,39 +168,33 @@
 	board = createEmptyBoard();
 </script>
 
-<div class="min-h-screen bg-slate-50 dark:bg-slate-900 flex flex-col items-center justify-center p-8">
-	<div class="flex flex-col items-center gap-4">
-		<h1 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-2">Minesweeper</h1>
+<div class="flex flex-col items-center gap-4">
+	<StatusBar
+		{timer}
+		minesRemaining={MINES - flagCount}
+		{status}
+		{isMouseDown}
+		onrestart={restart}
+		width={COLS * 29}
+	/>
 
-		<StatusBar
-			{timer}
-			minesRemaining={MINES - flagCount}
-			{status}
-			{isMouseDown}
-			onrestart={restart}
-			width={COLS * 29}
-		/>
+	<Board
+		{board}
+		rows={ROWS}
+		cols={COLS}
+		disabled={status === 'won' || status === 'lost'}
+		onmousedown={handleBoardMouseDown}
+		onmouseup={handleBoardMouseUp}
+		onmouseleave={handleBoardMouseLeave}
+		oncellclick={handleCellClick}
+		oncellrightclick={handleCellRightClick}
+	/>
 
-		<Board
-			{board}
-			rows={ROWS}
-			cols={COLS}
-			disabled={status === 'won' || status === 'lost'}
-			onmousedown={handleBoardMouseDown}
-			onmouseup={handleBoardMouseUp}
-			onmouseleave={handleBoardMouseLeave}
-			oncellclick={handleCellClick}
-			oncellrightclick={handleCellRightClick}
-		/>
-
-		<div class="h-6 flex items-center justify-center">
-			{#if status === 'won'}
-				<p class="text-sm text-slate-500 dark:text-slate-400 font-medium tracking-wide">Cleared!</p>
-			{:else if status === 'lost'}
-				<p class="text-sm text-slate-500 dark:text-slate-400 font-medium tracking-wide">Boom.</p>
-			{/if}
-		</div>
-
-		<Footer />
+	<div class="h-6 flex items-center justify-center">
+		{#if status === 'won'}
+			<p class="text-sm text-slate-500 dark:text-slate-400 font-medium tracking-wide">Cleared!</p>
+		{:else if status === 'lost'}
+			<p class="text-sm text-slate-500 dark:text-slate-400 font-medium tracking-wide">Boom.</p>
+		{/if}
 	</div>
 </div>
