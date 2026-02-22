@@ -282,9 +282,8 @@
 
 		<!-- Footer -->
 		<div class="flex items-center gap-4 mt-6 text-slate-400">
-			<!-- svelte-ignore a11y_no_navigation_without_resolve -->
 			<a
-				href="/storybook"
+				href="./storybook/"
 				target="_blank"
 				class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
 				aria-label="Storybook"

@@ -12,8 +12,8 @@ const config = {
 		}),
 		prerender: {
 			handleHttpError: ({ path, message }) => {
-				// Ignore /storybook link - it's built separately and combined in CI
-				if (path.startsWith('/storybook')) {
+				// Ignore storybook links - it's built separately and combined in CI
+				if (path.includes('storybook')) {
 					return;
 				}
 				throw new Error(message);
