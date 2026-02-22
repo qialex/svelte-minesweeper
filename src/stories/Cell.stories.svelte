@@ -10,7 +10,8 @@
 			mine: { control: 'boolean' },
 			revealed: { control: 'boolean' },
 			flagged: { control: 'boolean' },
-			count: { control: { type: 'number', min: 0, max: 8 } }
+			count: { control: { type: 'number', min: 0, max: 8 } },
+			disabled: { control: 'boolean' }
 		}
 	});
 </script>
@@ -25,3 +26,4 @@
 
 <Story name="Revealed Mine" args={{ revealed: true, mine: true }} />
 
+<Story name="Disabled" args={{ revealed: false, disabled: true }} />
