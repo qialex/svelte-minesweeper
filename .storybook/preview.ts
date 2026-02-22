@@ -3,6 +3,11 @@ import '../src/routes/layout.css';
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: ['Game', ['Minesweeper', 'Board', ['Cell'], 'StatusBar', ['FaceButton', 'Timer', 'MineCounter']], 'UI', ['Footer', 'Tooltip']],
+      },
+    },
     controls: {
       matchers: {
        color: /(background|color)$/i,

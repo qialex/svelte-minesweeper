@@ -3,14 +3,18 @@
 	import Minesweeper from '$lib/Minesweeper.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Minesweeper/Game',
+		title: 'Game/Minesweeper',
 		component: Minesweeper,
 		tags: ['autodocs'],
 		parameters: {
-			layout: 'fullscreen'
+			layout: 'centered',
+			docs: {
+				description: {
+					component: 'The complete Minesweeper game component with status bar, board, and footer.'
+				}
+			}
 		}
 	});
 </script>
 
 <Story name="Default" />
-
