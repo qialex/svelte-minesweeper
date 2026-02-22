@@ -9,7 +9,16 @@ const config = {
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		})
+		}),
+		prerender: {
+			handleHttpError: ({ path, message }) => {
+				// Ignore /storybook link - it's built separately and combined in CI
+				if (path.startsWith('/storybook')) {
+					return;
+				}
+				throw new Error(message);
+			}
+		}
 	},
 	compilerOptions: { experimental: { async: true } }
 };
